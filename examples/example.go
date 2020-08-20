@@ -9,7 +9,6 @@ import (
 
 func main(){
 
-
     logToLoggly := loggly.New("YOUR_LOGGLY_TOKEN_HERE")
 
     err := logToLoggly.Info("A test message from Golang to Loggly!")
@@ -18,7 +17,7 @@ func main(){
         log.Fatal(err)
     }
 
-    logToLoggly.Flush()
+    logToLoggly.Sync()
 
     fmt.Println("done.")
 

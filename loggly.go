@@ -212,6 +212,12 @@ func (c *Client) Emergency(t string, props ...Message) error {
 	return c.Send(msg)
 }
 
+// Sync (flush) the buffered messages.
+// Zap https://pkg.go.dev/go.uber.org/zap/zapcore?tab=doc#WriteSyncer
+func (c *Client) Sync() error {
+	return c.Flush()
+}
+
 // Flush the buffered messages.
 func (c *Client) Flush() error {
 	c.Lock()
